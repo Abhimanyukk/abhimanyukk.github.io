@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { personalInfo } from '../data/portfolio'
 import { fromBottom, fromLeft, fromRight } from '../utils/variants'
@@ -82,6 +82,14 @@ function go(href: string) {
 export default function Footer() {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-60px' })
+  const [visitorCount, setVisitorCount] = useState<number | null>(null)
+
+  useEffect(() => {
+    fetch('https://api.counterapi.dev/v1/abhimanyukk-portfolio/visits/up')
+      .then(r => r.json())
+      .then(d => setVisitorCount(d.count))
+      .catch(() => {})
+  }, [])
 
   return (
     <footer
@@ -287,21 +295,40 @@ export default function Footer() {
         transition={{ delay: 0.45 }}
         style={{
           borderTop: '1px solid rgba(255,255,255,0.07)',
-          padding: '20px 48px',
+          padding: '18px 48px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: 12,
         }}
       >
         <p style={{
           fontFamily: '"Plus Jakarta Sans", sans-serif',
           fontSize: '0.78rem',
           color: 'rgba(255,255,255,0.28)',
-          textAlign: 'center',
           letterSpacing: '0.02em',
         }}>
           &copy; {new Date().getFullYear()} Abhimanyu KK &mdash; Built with React &amp; Vite
         </p>
+
+        {/* Visitor counter */}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 7,
+          fontFamily: '"Plus Jakarta Sans", sans-serif',
+          fontSize: '0.75rem',
+          color: 'rgba(255,255,255,0.28)',
+          letterSpacing: '0.03em',
+        }}>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          {visitorCount !== null
+            ? <span>{visitorCount.toLocaleString()} visitors</span>
+            : <span style={{ opacity: 0.4 }}>— visitors</span>
+          }
+        </div>
       </motion.div>
     </footer>
   )
