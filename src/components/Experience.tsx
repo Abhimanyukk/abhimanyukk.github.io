@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { experience } from '../data/portfolio'
 import { fromBottom, sideVariant } from '../utils/variants'
@@ -6,30 +6,11 @@ import { fromBottom, sideVariant } from '../utils/variants'
 const dotColors = ['#4285F4', '#EA4335', '#FBBC05']
 const cardAccent = ['card-blue', 'card-red', 'card-yellow']
 
-function CompanyLogo({ website, company, color }: { website: string; company: string; color: string }) {
-  const [failed, setFailed] = useState(false)
-  const domain = new URL(website).hostname.replace(/^www\./, '')
-  const initial = company.charAt(0).toUpperCase()
-
-  if (failed) {
-    return (
-      <div style={{
-        width: 52, height: 52, borderRadius: 14, flexShrink: 0,
-        background: `${color}14`, border: `1.5px solid ${color}30`,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        fontSize: '1.4rem', fontWeight: 800, color,
-        fontFamily: '"Plus Jakarta Sans", sans-serif',
-      }}>
-        {initial}
-      </div>
-    )
-  }
-
+function CompanyLogo({ logo, company, color }: { logo: string; company: string; color: string }) {
   return (
     <img
-      src={`https://logo.clearbit.com/${domain}`}
+      src={logo}
       alt={`${company} logo`}
-      onError={() => setFailed(true)}
       style={{
         width: 52, height: 52, borderRadius: 14, flexShrink: 0,
         objectFit: 'contain', background: '#ffffff',
@@ -90,7 +71,7 @@ export default function Experience() {
                   {/* Card header: Logo + Role + Company + Period */}
                   <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', marginBottom: 18 }}>
                     {/* Logo */}
-                    <CompanyLogo website={exp.website} company={exp.company} color={dotColors[idx]} />
+                    <CompanyLogo logo={exp.logo} company={exp.company} color={dotColors[idx]} />
 
                     {/* Role + Company row */}
                     <div style={{ flex: 1, minWidth: 0 }}>
