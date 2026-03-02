@@ -1,10 +1,44 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { experience } from '../data/portfolio'
 import { fromBottom, sideVariant } from '../utils/variants'
 
 const dotColors = ['#4285F4', '#EA4335', '#FBBC05']
 const cardAccent = ['card-blue', 'card-red', 'card-yellow']
+
+function CompanyLogo({ website, company, color }: { website: string; company: string; color: string }) {
+  const [failed, setFailed] = useState(false)
+  const domain = new URL(website).hostname.replace(/^www\./, '')
+  const initial = company.charAt(0).toUpperCase()
+
+  if (failed) {
+    return (
+      <div style={{
+        width: 52, height: 52, borderRadius: 14, flexShrink: 0,
+        background: `${color}14`, border: `1.5px solid ${color}30`,
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        fontSize: '1.4rem', fontWeight: 800, color,
+        fontFamily: '"Plus Jakarta Sans", sans-serif',
+      }}>
+        {initial}
+      </div>
+    )
+  }
+
+  return (
+    <img
+      src={`https://logo.clearbit.com/${domain}`}
+      alt={`${company} logo`}
+      onError={() => setFailed(true)}
+      style={{
+        width: 52, height: 52, borderRadius: 14, flexShrink: 0,
+        objectFit: 'contain', background: '#ffffff',
+        border: `1.5px solid ${color}28`, padding: 6,
+        boxShadow: `0 2px 8px ${color}14`,
+      }}
+    />
+  )
+}
 
 export default function Experience() {
   const ref = useRef(null)
@@ -45,42 +79,70 @@ export default function Experience() {
                     background: dotColors[idx],
                     border: '2px solid var(--bg)',
                     boxShadow: `0 0 12px ${dotColors[idx]}66`,
-                    marginLeft: -52, marginTop: 20,
+                    marginLeft: -52, marginTop: 24,
                     position: 'relative', zIndex: 1, flexShrink: 0,
                   }}
                 />
 
                 {/* Card */}
                 <div className={`card ${cardAccent[idx]}`} style={{ padding: '24px 28px', flex: 1 }}>
-                  {/* Role + Period */}
-                  <div style={{
-                    display: 'flex', justifyContent: 'space-between',
-                    flexWrap: 'wrap', gap: 8, marginBottom: 6,
-                  }}>
-                    <h3 style={{
-                      fontFamily: '"Plus Jakarta Sans", sans-serif',
-                      fontSize: '1.1rem', fontWeight: 700, color: 'var(--text)',
-                    }}>
-                      {exp.role}
-                    </h3>
-                    <span style={{
-                      fontSize: '0.75rem', color: dotColors[idx],
-                      background: `${dotColors[idx]}14`,
-                      border: `1px solid ${dotColors[idx]}30`,
-                      borderRadius: 999, padding: '3px 12px',
-                      fontFamily: '"Plus Jakarta Sans"', whiteSpace: 'nowrap',
-                    }}>
-                      {exp.period}
-                    </span>
+
+                  {/* Card header: Logo + Role + Company + Period */}
+                  <div style={{ display: 'flex', gap: 16, alignItems: 'flex-start', marginBottom: 18 }}>
+                    {/* Logo */}
+                    <CompanyLogo website={exp.website} company={exp.company} color={dotColors[idx]} />
+
+                    {/* Role + Company row */}
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      {/* Role + Period */}
+                      <div style={{
+                        display: 'flex', justifyContent: 'space-between',
+                        flexWrap: 'wrap', gap: 8, marginBottom: 6,
+                      }}>
+                        <h3 style={{
+                          fontFamily: '"Plus Jakarta Sans", sans-serif',
+                          fontSize: '1.05rem', fontWeight: 700, color: 'var(--text)',
+                        }}>
+                          {exp.role}
+                        </h3>
+                        <span style={{
+                          fontSize: '0.72rem', color: dotColors[idx],
+                          background: `${dotColors[idx]}14`,
+                          border: `1px solid ${dotColors[idx]}30`,
+                          borderRadius: 999, padding: '3px 12px',
+                          fontFamily: '"Plus Jakarta Sans"', whiteSpace: 'nowrap',
+                          alignSelf: 'flex-start',
+                        }}>
+                          {exp.period}
+                        </span>
+                      </div>
+
+                      {/* Company name as link */}
+                      <a
+                        href={exp.website}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          color: dotColors[idx],
+                          fontFamily: '"Plus Jakarta Sans", sans-serif',
+                          fontWeight: 600, fontSize: '0.87rem',
+                          textDecoration: 'none',
+                          display: 'inline-flex', alignItems: 'center', gap: 4,
+                          transition: 'opacity 0.2s',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.75')}
+                        onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                      >
+                        {exp.company}
+                        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
+                          <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </a>
+                    </div>
                   </div>
 
-                  {/* Company */}
-                  <p style={{
-                    color: dotColors[idx], fontFamily: '"Plus Jakarta Sans", sans-serif',
-                    fontWeight: 600, fontSize: '0.87rem', marginBottom: 16,
-                  }}>
-                    {exp.company}
-                  </p>
+                  {/* Divider */}
+                  <div style={{ height: 1, background: `${dotColors[idx]}18`, marginBottom: 14 }} />
 
                   {/* Bullet points */}
                   <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 7 }}>

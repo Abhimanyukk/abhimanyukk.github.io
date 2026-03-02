@@ -63,6 +63,7 @@ export const experience = [
   {
     role: 'Lead Embedded Engineer',
     company: 'Utthunga Technologies',
+    website: 'https://utthunga.com',
     period: 'May 2021 – Present',
     highlights: [
       'Led full product lifecycle development (architecture → production)',
@@ -80,6 +81,7 @@ export const experience = [
   {
     role: 'Technology Associate',
     company: 'Toutche Electric',
+    website: 'https://toutche.com',
     period: 'Feb 2021 – May 2021',
     highlights: [
       'Developed firmware for electric bike controllers',
@@ -91,6 +93,7 @@ export const experience = [
   {
     role: 'Embedded System Developer',
     company: 'ICPro Solutions',
+    website: 'https://www.icpro.in',
     period: 'Jan 2019 – Feb 2021',
     highlights: [
       'Designed Industrial IoT solutions for manufacturing environments',
