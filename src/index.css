@@ -173,3 +173,24 @@ h1, h2, h3, h4, h5, h6 {
   top: 0 !important; left: 0 !important;
   width: 100% !important; height: 100% !important;
 }
+
+/* ─── Hero split layout ──────────────────────────────────── */
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  width: 100%;
+  max-width: 1140px;
+  padding: 0 56px;
+}
+@media (max-width: 820px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding: 0 24px;
+    gap: 32px;
+    text-align: center;
+  }
+  .hero-image { order: -1; }
+  .hero-grid .hero-text > div { justify-content: center !important; }
+}
