@@ -192,11 +192,13 @@ export const education = [
     degree: 'Professional Graduate Programme',
     institution: 'International Institute of Management & Technical Studies',
     period: '2022 – 2024',
+    logo: '/logos/iimt.png',
   },
   {
     degree: 'Bachelor of Technology — Electronics & Communication',
     institution: 'Malabar Institute of Technology',
     period: '2014 – 2018',
+    logo: '/logos/mit.svg',
   },
 ]
 

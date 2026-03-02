@@ -34,15 +34,21 @@ export default function Education() {
               className={`card ${idx === 0 ? 'card-blue' : 'card-green'}`}
               style={{ padding: '32px', flex: 1, minWidth: 260, display: 'flex', flexDirection: 'column', gap: 12 }}
             >
-              {/* Icon */}
+              {/* Institution logo */}
               <div style={{
-                width: 44, height: 44, borderRadius: 12,
-                background: `${colors[idx]}12`,
-                border: `1px solid ${colors[idx]}28`,
+                width: 56, height: 56, borderRadius: 14,
+                background: '#ffffff',
+                border: `1.5px solid ${colors[idx]}28`,
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '1.3rem', marginBottom: 4,
+                padding: 6,
+                boxShadow: `0 2px 8px ${colors[idx]}14`,
+                marginBottom: 4,
               }}>
-                🎓
+                <img
+                  src={edu.logo}
+                  alt={edu.institution}
+                  style={{ width: 44, height: 44, objectFit: 'contain' }}
+                />
               </div>
 
               {/* Degree */}
