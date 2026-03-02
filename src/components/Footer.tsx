@@ -122,7 +122,7 @@ export default function Footer() {
           fontFamily: '"Plus Jakarta Sans", sans-serif',
           fontSize: 'clamp(1.1rem, 2.5vw, 1.55rem)',
           fontWeight: 900,
-          color: 'rgba(186, 255, 247, 0.38)',
+          color: 'rgba(255, 255, 255, 0.38)',
           lineHeight: 1.5,
           letterSpacing: '-0.01em',
           maxWidth: 760,

@@ -203,3 +203,11 @@ h1, h2, h3, h4, h5, h6 {
     gap: 40px !important;
   }
 }
+
+/* ─── Navbar responsive visibility ───────────────────────── */
+.nav-desktop   { display: flex; }
+.nav-hamburger { display: none; flex-direction: column; }
+@media (max-width: 768px) {
+  .nav-desktop   { display: none; }
+  .nav-hamburger { display: flex; }
+}

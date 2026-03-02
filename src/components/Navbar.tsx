@@ -23,7 +23,9 @@ export default function Navbar() {
 
   const go = (href: string) => {
     setMenuOpen(false)
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    setTimeout(() => {
+      document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+    }, 180)
   }
 
   return (
@@ -63,7 +65,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop links */}
-        <ul className="hidden md:flex" style={{ gap: 32, listStyle: 'none', margin: 0, padding: 0, display: 'flex' }}>
+        <ul className="nav-desktop" style={{ gap: 32, listStyle: 'none', margin: 0, padding: 0 }}>
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -86,9 +88,9 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden"
+          className="nav-hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
-          style={{ background: 'none', border: 'none', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5, padding: 4 }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', gap: 5, padding: 4 }}
           aria-label="Toggle menu"
         >
           {[0,1,2].map((i) => (
@@ -104,31 +106,85 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile menu — floating rounded card */}
       <AnimatePresence>
         {menuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            style={{ background: 'rgba(255,255,255,0.98)', borderTop: '1px solid var(--border)', padding: '16px 0' }}
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); go(link.href) }}
-                style={{
-                  display: 'block', padding: '12px 28px',
-                  color: 'var(--text-muted)', textDecoration: 'none',
-                  fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '0.95rem',
-                  borderBottom: '1px solid var(--border)',
-                }}
-              >
-                {link.label}
-              </a>
-            ))}
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              key="backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.18 }}
+              onClick={() => setMenuOpen(false)}
+              style={{
+                position: 'fixed', inset: 0, zIndex: 998,
+                background: 'rgba(0,0,0,0.18)',
+                backdropFilter: 'blur(2px)',
+                WebkitBackdropFilter: 'blur(2px)',
+              }}
+            />
+
+            {/* Floating card */}
+            <motion.div
+              key="menu"
+              initial={{ opacity: 0, scale: 0.92, y: -12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: -12 }}
+              transition={{ type: 'spring', stiffness: 280, damping: 24 }}
+              style={{
+                position: 'fixed',
+                top: 72, right: 18,
+                zIndex: 999,
+                width: 224,
+                background: 'rgba(255,255,255,0.97)',
+                backdropFilter: 'blur(24px)',
+                WebkitBackdropFilter: 'blur(24px)',
+                borderRadius: 20,
+                boxShadow: '0 8px 40px rgba(0,0,0,0.14), 0 1px 0 rgba(255,255,255,0.8) inset',
+                border: '1px solid rgba(0,0,0,0.07)',
+                padding: '10px 8px',
+                overflow: 'hidden',
+              }}
+            >
+              {navLinks.map((link, idx) => {
+                const accent = ['#4285F4','#EA4335','#FBBC05','#34A853','#4285F4','#EA4335','#FBBC05','#34A853'][idx]
+                return (
+                  <motion.a
+                    key={link.href}
+                    href={link.href}
+                    onClick={(e) => { e.preventDefault(); go(link.href) }}
+                    initial={{ opacity: 0, x: 12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.04 + idx * 0.04, type: 'spring', stiffness: 320, damping: 26 }}
+                    style={{
+                      display: 'flex', alignItems: 'center', gap: 12,
+                      padding: '11px 14px',
+                      borderRadius: 12,
+                      textDecoration: 'none',
+                      fontFamily: '"Plus Jakarta Sans", sans-serif',
+                      fontSize: '0.9rem',
+                      fontWeight: 600,
+                      color: 'var(--text)',
+                      transition: 'background 0.15s',
+                      cursor: 'pointer',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = `${accent}12`)}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                  >
+                    <span style={{
+                      width: 7, height: 7, borderRadius: '50%',
+                      background: accent,
+                      flexShrink: 0,
+                      boxShadow: `0 0 6px ${accent}66`,
+                    }} />
+                    {link.label}
+                  </motion.a>
+                )
+              })}
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>
