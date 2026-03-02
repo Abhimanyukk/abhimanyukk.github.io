@@ -194,3 +194,12 @@ h1, h2, h3, h4, h5, h6 {
   .hero-image { order: -1; }
   .hero-grid .hero-text > div { justify-content: center !important; }
 }
+
+/* ─── Footer responsive grid ─────────────────────────────── */
+@media (max-width: 720px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    padding: 40px 28px 36px !important;
+    gap: 40px !important;
+  }
+}
