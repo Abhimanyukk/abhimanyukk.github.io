@@ -202,24 +202,26 @@ export const education = [
 
 export const awards = [
   {
-    icon: '🏆',
+    type: 'utthunga' as const,
     title: 'Best Employee of the Year 2022',
     org: 'Utthunga Technologies',
-    color: 'rgba(0, 212, 255, 0.1)',
-    borderColor: 'rgba(0, 212, 255, 0.3)',
+    color: '#FBBC05',
+    cardAccent: 'card-yellow',
   },
   {
-    icon: '🏆',
+    type: 'google' as const,
     title: 'Google Kick Start 2021',
     org: 'Global Rank 6372',
-    color: 'rgba(123, 47, 247, 0.1)',
-    borderColor: 'rgba(123, 47, 247, 0.3)',
+    color: '#4285F4',
+    cardAccent: 'card-blue',
   },
+]
+
+export const certifications = [
   {
-    icon: '📜',
     title: 'Embedded Linux Training',
-    org: 'Utthunga Technologies',
-    color: 'rgba(0, 212, 255, 0.08)',
-    borderColor: 'rgba(0, 212, 255, 0.2)',
+    issuer: 'Utthunga Technologies',
+    year: '2022',
+    color: '#34A853',
   },
 ]
