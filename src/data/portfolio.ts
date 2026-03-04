@@ -8,6 +8,7 @@ export const personalInfo = {
   linkedin: 'https://linkedin.com/in/abhimanyukk',
   summary:
     'Embedded Technical Lead with 7+ years of experience architecting and delivering high-performance embedded systems across complex, mission-critical environments. Experienced in system architecture definition, PRD review & SRS authoring, hardware–software co-design, secure boot & OTA architecture, embedded Linux customisation, RTOS and low-level firmware, and Qt/QML & LVGL UI development. Strong background in customer-facing technical discussions, compliance alignment (CFR 21 Part 11, EU CRA), and scalable production-grade system design.',
+  resume: '/AbhimanyuKK_7yrs-032026.pdf',
   expertiseTags: [
     'System Architecture',
     'Embedded Linux',

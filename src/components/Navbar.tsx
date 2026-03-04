@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { personalInfo } from '../data/portfolio'
 
 const navLinks = [
-  { label: 'About',      href: '#about' },
-  { label: 'Skills',     href: '#skills' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Projects',   href: '#projects' },
-  { label: 'Education',  href: '#education' },
-  { label: 'Awards',     href: '#awards' },
-  { label: 'Contact',    href: '#contact' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Education', href: '#education' },
+  { label: 'Awards', href: '#awards' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -53,7 +54,7 @@ export default function Navbar() {
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           style={{ textDecoration: 'none', display: 'flex', gap: 6, alignItems: 'center' }}
         >
-          {['#4285F4','#EA4335','#FBBC05','#34A853'].map((c, i) => (
+          {['#4285F4', '#EA4335', '#FBBC05', '#34A853'].map((c, i) => (
             <span key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: c, display: 'inline-block' }} />
           ))}
           <span style={{
@@ -84,6 +85,43 @@ export default function Navbar() {
               </a>
             </li>
           ))}
+          {/* Resume Download Desktop */}
+          <li>
+            <a
+              href={personalInfo.resume}
+              download
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                background: 'linear-gradient(135deg, #4285F4, #34A853)',
+                color: 'white',
+                padding: '6px 14px',
+                borderRadius: '100px',
+                textDecoration: 'none',
+                fontSize: '0.82rem',
+                fontWeight: 600,
+                fontFamily: '"Plus Jakarta Sans", sans-serif',
+                transition: 'all 0.2s ease',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 6,
+                boxShadow: '0 4px 12px rgba(66,133,244,0.2)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-1px)'
+                e.currentTarget.style.boxShadow = '0 6px 16px rgba(66,133,244,0.3)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)'
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(66,133,244,0.2)'
+              }}
+            >
+              Resume
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            </a>
+          </li>
         </ul>
 
         {/* Mobile hamburger */}
@@ -93,14 +131,14 @@ export default function Navbar() {
           style={{ background: 'none', border: 'none', cursor: 'pointer', gap: 5, padding: 4 }}
           aria-label="Toggle menu"
         >
-          {[0,1,2].map((i) => (
+          {[0, 1, 2].map((i) => (
             <span key={i} style={{
               display: 'block', width: 22, height: 1.5,
               background: menuOpen ? '#4285F4' : '#6b6b7a',
               borderRadius: 2, transition: 'all 0.3s ease',
               opacity: menuOpen && i === 1 ? 0 : 1,
               transform: menuOpen && i === 0 ? 'rotate(45deg) translate(5px, 5px)' :
-                         menuOpen && i === 2 ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
+                menuOpen && i === 2 ? 'rotate(-45deg) translate(5px, -5px)' : 'none',
             }} />
           ))}
         </button>
@@ -149,7 +187,7 @@ export default function Navbar() {
               }}
             >
               {navLinks.map((link, idx) => {
-                const accent = ['#4285F4','#EA4335','#FBBC05','#34A853','#4285F4','#EA4335','#FBBC05','#34A853'][idx]
+                const accent = ['#4285F4', '#EA4335', '#FBBC05', '#34A853', '#4285F4', '#EA4335', '#FBBC05', '#34A853'][idx]
                 return (
                   <motion.a
                     key={link.href}
@@ -183,6 +221,33 @@ export default function Navbar() {
                   </motion.a>
                 )
               })}
+
+              {/* Mobile Resume Link */}
+              <div style={{ marginTop: 8, padding: '0 8px' }}>
+                <a
+                  href={personalInfo.resume}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                    padding: '12px',
+                    borderRadius: 14,
+                    textDecoration: 'none',
+                    fontFamily: '"Plus Jakarta Sans", sans-serif',
+                    fontSize: '0.9rem',
+                    fontWeight: 700,
+                    color: 'white',
+                    background: 'linear-gradient(135deg, #4285F4, #34A853)',
+                    boxShadow: '0 4px 12px rgba(66,133,244,0.2)',
+                  }}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download Resume
+                </a>
+              </div>
             </motion.div>
           </>
         )}
