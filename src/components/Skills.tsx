@@ -23,7 +23,7 @@ const columns: Col[] = [
     variants: fromBottom,
   },
   {
-    title: 'Tools & Platforms',
+    title: 'Platforms & Tools',
     items: skills.tools,
     color: '#EA4335',
     tagClass: 'tag tag-red',
@@ -31,6 +31,7 @@ const columns: Col[] = [
     variants: fromRight,
   },
 ]
+
 
 export default function Skills() {
   const ref = useRef(null)
