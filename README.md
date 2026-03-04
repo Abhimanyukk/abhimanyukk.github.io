@@ -1,198 +1,289 @@
-## Lead Embedded Engineer
+# ABHIMANYU K K  
+## Lead Embedded Engineer  
 
-📍 Bangalore, India  
-📧 abhimanyukk01@gmail.com  
 📞 +91 8943 521 009  
-🔗 [GitHub](https://github.com/Abhimanyukk)  
-🔗 [LinkedIn](https://linkedin.com/in/abhimanyukk)
+📧 abhimanyukk01@gmail.com  
+📍 Bangalore, Karnataka, India  
+🔗 https://github.com/Abhimanyukk  
+🔗 https://linkedin.com/in/abhimanyukk/  
 
 ---
 
-## Summary
+# SUMMARY
 
 Embedded Technical Lead with 7+ years of experience architecting and delivering high-performance embedded systems across complex, mission-critical environments.
 
-Experienced in:
-- System architecture definition
-- PRD review & SRS authoring
-- Hardware–software co-design
-- Secure boot & OTA architecture
-- Embedded Linux customisation
-- RTOS and low-level firmware
-- Qt/QML and LVGL UI development
+Proven leader driving projects from concept to production — owning system architecture, requirement analysis, technical roadmap, and cross-functional execution.
 
-Strong background in customer-facing technical discussions, compliance alignment (CFR 21 Part 11, EU CRA), and scalable production-grade system design.
+Experienced in:
+- Customer-facing technical discussions
+- Onsite solution architecture engagements
+- Translating business requirements into scalable production-ready systems
+- Writing SRS and reviewing PRDs
+- Regulatory and compliance-driven development
+
+Strong background in hardware–software co-design:
+- Hardware architecture
+- Schematic design
+- PCB layout
+- Board bring-up
+- System validation
+
+Deep expertise in:
+- C, C++, Python
+- Embedded Linux
+- Linux device drivers
+- Yocto Project
+- RTOS environments
+- Qt/QML, LVGL (MVC-based scalable UI architectures)
 
 ---
 
-## Core Skills
+# SKILLS
 
-### Languages & Frameworks
+## Languages & Frameworks
 - Embedded C / C++
 - Python
-- Qt / QML
+- QML
 - LVGL
 - PyQt
 - C#
 - JavaScript / TypeScript
 - Node.js
 - React
+- HTML / CSS
 - Rust (Basics)
 
-### Communication Protocols
+## Communication Protocols
 - ModBus
 - HiSLIP
 - VXI-11
 - TCP/IP
 - USBTMC
 - GPIB / IEEE488
-- BLE / WiFi / ZigBee
-- UART / I2C / SPI / QSPI / OSPI
+- BLE
+- WiFi
+- ZigBee
+- UART
+- I2C
+- SPI
+- QSPI
+- OSPI
 
-### Tools & Platforms
-- GitHub / GitLab / Bitbucket / SVN
-- Docker / CI/CD / Jenkins
-- KiCAD / Altium
+## Platforms & Tools
+- Embedded Linux
+- Device Drivers
+- Yocto Project
+- Zephyr
+- GitHub / GitLab / Bitbucket
+- Tortoise SVN
+- Docker
+- CI/CD
+- Jenkins
+- Rally
+- Aha
+- KiCAD
+- Altium
 - IAR Workbench
-- CMake / Makefile
 - VS Code Extension Development
+- CMake
+- Makefile
 
 ---
 
-# Professional Experience
+# PROFESSIONAL EXPERIENCE
 
-## Lead Embedded Engineer  
-**Utthunga Technologies | May 2021 – Present**
+## Utthunga Technologies – Bangalore  
+**Lead Embedded Engineer / Senior Embedded Systems Engineer**  
+_May 2021 – Present_
 
-### Key Contributions
-- Led full product lifecycle development (architecture → production)
-- Defined system architecture for multi-functional calibrator redesign
-- Authored SRS and reviewed PRDs
-- Designed secure boot and A/B update strategies
-- EVK bring-up & custom OS builds
-- Cybersecurity alignment (CFR 21 Part 11, EU CRA)
-- LXI compliance implementation
-- Led team of developers & testers
-- Established Git workflows & CI/CD pipelines
-- Conducted recruitment & technical mentoring
-
----
-
-## Technology Associate  
-**Toutche Electric | Feb 2021 – May 2021**
-
-- Developed firmware for electric bikes
-- PID tuning for BLDC motors
-- Hardware debugging (power issues)
-- System validation & integration
+- Led embedded software, hardware, web server, and desktop application projects.
+- Owned end-to-end project execution including timeline, risk, and cross-team coordination.
+- Architected multi-functional calibrator redesign system.
+- Designed cybersecurity requirements aligned with:
+  - CFR 21 Part 11
+  - EU regulatory standards
+- Conducted technical & regulatory risk assessments.
+- Authored Software Requirement Specifications (SRS).
+- Led onsite customer technical discussions.
+- Executed PoC studies (Zephyr vs Embedded Linux).
+- EVK bring-up and custom OS builds.
+- Led LXI certification and compliance validation.
+- Established Git workflows and release management strategy.
+- Conducted technical recruitment.
+- Mentored engineering teams.
 
 ---
 
-## Embedded System Developer  
-**ICPro Solutions | Jan 2019 – Feb 2021**
+## Toutche Electric – Mysore  
+**Technology Associate**  
+_Feb 2021 – May 2021_
 
-- Designed Industrial IoT solutions
-- BLE / WiFi / ZigBee / LoRa integrations
-- PCB design (multi-layer)
-- Android BLE apps
-- Secure boot & OTA implementation
-- Cloud integration (AWS / Azure / Google Cloud)
-
----
-
-# Featured Projects
-
-## Multi-Function Calibrator (Technical Lead)
-
-- End-to-end system definition (PRD → SRS)
-- Platform evaluation (Zephyr vs Embedded Linux)
-- Secure boot + A/B OTA strategy
-- Layered architecture (HAL, BSP, Middleware, Application)
-- DevOps containerised builds
-- Cybersecurity compliance implementation
-- Performance-optimised Embedded Linux for LVGL
+- Developed embedded software for electric bikes.
+- Debugged power-related hardware faults.
+- Performed BLDC PID tuning.
+- Conducted system validation and integration testing.
 
 ---
 
-## Pressure Automated & Control Equipment
+## ICPro Solutions Pvt. Ltd. – Bangalore  
+**Embedded System Developer**  
+_Jan 2019 – Feb 2021_
 
-- C++ application on Torizon Linux
-- SCPI protocol over:
-  - USB Serial
-  - USBTMC
-  - Raw Socket
-  - HiSLIP
-  - VXI-11
-  - GPIB
-- Linux USBTMC driver development
-- Dockerised deployment
-- Node.js + React web server
-- QML UI development
-- CI/CD with GitHub Actions
+- Designed Industrial IoT systems.
+- Developed BLE, Wi-Fi, ZigBee, LoRa, NB-IoT solutions.
+- Designed multi-layer PCBs.
+- Built Android BLE applications.
+- Integrated AWS IoT, Azure IoT, Google Cloud IoT.
+- Implemented secure boot & OTA updates.
 
 ---
 
-## Functional Safety Firmware
+## Keltron Advanced Studies – Calicut  
+**Internship Trainee**
 
-- Embedded C on Atmel SAMD21
-- Redundant board architecture
-- DMA-based ADC
-- High-speed SPI & UART
-- Active / Redundant / Fail state machine modes
-
----
-
-## Wireless IO Module
-
-- STM32 + ZigBee mesh
-- OTA bootloader implementation
-- Gateway using Raspberry Pi Compute Module
-- Windows configuration tool
+- Developed traffic light embedded systems.
+- Designed compact PCB systems.
+- Integrated wireless monitoring solutions.
 
 ---
 
-## Vibration Sensor (BLE)
+# PROJECTS
 
-- Nordic BLE SoC firmware
-- Custom BLE services
-- OTA updates
-- Power optimisation
-- Android integration
+## Multi-Function Calibrator  
+**Technical Lead – Embedded**
 
----
-
-## Electric Bike Controller
-
-- Infineon MCU firmware
-- PID motor control
-- CAN communication
-- Safety mechanisms
-- Real-time optimisation
+- End-to-end architecture from PRD to SRS.
+- Custom Embedded Linux using Yocto.
+- Developed for NXP i.MX8ULP EVK.
+- Secure Boot + A/B Update system.
+- Defined HAL/BSP/Middleware/Application layers.
+- EU CRA & CFR 21 compliance alignment.
+- Designed CI/CD embedded DevOps workflows.
 
 ---
 
-# Academics
+## Pressure Automated & Control Equipment  
+**Scrum Team Lead**
 
-**Professional Graduate Programme**  
-International Institute of Management & Technical Studies (2022–2024)
-
-**Bachelor of Technology – Electronics & Communication**  
-Malabar Institute of Technology (2014–2018)
-
----
-
-# Awards & Certifications
-
-🏆 Best Employee of the Year 2022 – Utthunga Technologies  
-🏆 Google Kick Start 2021 – Global Rank 6372  
-📜 Embedded Linux Training – Utthunga Technologies
+- Designed SCPI protocol architecture.
+- Developed C++ application on Torizon Linux.
+- Built custom USBTMC Linux driver.
+- Developed IEEE 488 C++ library.
+- Built Windows configuration tool (C#).
+- Developed React + Node.js web interface.
+- LXI compliance validation.
+- CI/CD with GitHub Actions.
 
 ---
 
-# Contact
+## Functional Safety  
+**Sr. Firmware Developer**
 
-📧 abhimanyukk01@gmail.com  
-📞 +91 8943 521 009  
-📍 Bangalore, Karnataka, India  
-🔗 GitHub: https://github.com/Abhimanyukk  
-🔗 LinkedIn: https://linkedin.com/in/abhimanyukk
+- Firmware for Atmel SAMD21.
+- Redundant multi-board architecture.
+- SPI/UART high-speed communication.
+- DMA-based ADC.
+- DAC waveform generation.
+- IAR Workbench development.
+
+---
+
+## ASIC Firmware Regression Testing  
+**Team Lead**
+
+- Python-based large-scale test automation.
+- CI/CD with Jenkins.
+- Automated lakh-scale test execution.
+
+---
+
+## Electric Bike  
+**Firmware Developer**
+
+- BLDC motor control.
+- CAN communication.
+- PID tuning.
+- Safety mechanisms implementation.
+
+---
+
+## Wireless IO Module  
+- STM32 + ZigBee mesh.
+- OTA bootloader.
+- Raspberry Pi Compute Module gateway.
+
+---
+
+## Vibration Sensor  
+- Nordic BLE SoC firmware.
+- Custom BLE services.
+- OTA firmware update.
+- IMU driver optimization.
+
+---
+
+## Torque Sensor Module  
+- Strain gauge precision measurement.
+- ADS1115 ADC integration.
+- IR-based data transmission.
+- Calibration algorithms.
+
+---
+
+## AIS140 Vehicle Tracking System  
+- Automotive-grade PCB design.
+- GPS + GSM + IMU integration.
+- AIS 140 compliance & certification.
+
+---
+
+## Knee Analyser (Android)
+- Dual IMU BLE sensor angle calculation.
+- Real-time posture classification.
+- Data visualization implementation.
+
+---
+
+## Website (Freelancer)
+- Developed www.racharity.org.in
+- React-based responsive design.
+- Donation integration.
+
+---
+
+## UI/UX Design
+- Designed systems in Figma:
+  - Restaurant Management
+  - Delivery App
+  - User Management System
+- Prototyping and responsive layouts.
+
+---
+
+# ACADEMICS
+
+**International Institute of Management and Technical (IIMT) Studies**  
+Professional Graduate Programme in Electronics & Telecommunication (2022–2024)
+
+**Malabar Institute of Technology (MIT)**  
+B.Tech in Electronics and Communication (2014–2018)
+
+---
+
+# AWARDS & CERTIFICATIONS
+
+- Best Employee of the Year 2022 – Utthunga Technologies
+- Google Kick Start 2021 – Global Rank 6372
+- Embedded Linux Training – Utthunga Technologies
+
+---
+
+# CONTACT
+
+Mobile: +91 8943 521 009  
+Email: abhimanyukk01@gmail.com  
+Location: Bangalore, Karnataka, India  
+
+Passport: S7896087 (Republic of India)  
+Visa: UKVI06 (Valid till October 2027)
