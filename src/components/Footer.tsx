@@ -1,17 +1,79 @@
-import { useRef, useState, useEffect } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useRef, useState, useEffect, useCallback } from 'react'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
 import { personalInfo } from '../data/portfolio'
 import { fromBottom, fromLeft, fromRight } from '../utils/variants'
 
+function MemeQuote() {
+  const [hovered, setHovered] = useState(false)
+  const [pos, setPos] = useState({ x: 0, y: 0 })
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    setPos({ x: e.clientX, y: e.clientY })
+  }, [])
+
+  return (
+    <p style={{
+      fontFamily: '"Plus Jakarta Sans", sans-serif',
+      fontSize: 'clamp(1.1rem, 2.5vw, 1.55rem)',
+      fontWeight: 900,
+      color: 'rgba(255, 255, 255, 0.38)',
+      lineHeight: 1.5,
+      letterSpacing: '-0.01em',
+      maxWidth: 760,
+      margin: '0 auto',
+      userSelect: 'none',
+    }}>
+      <span
+        style={{ cursor: 'default' }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onMouseMove={handleMouseMove}
+      >
+        &ldquo;Code is both my QUESTION and my ANSWER&nbsp;&mdash;
+        <br />
+        I write it every day to CLOSE THE GAP.&rdquo;
+      </span>
+
+      <AnimatePresence>
+        {hovered && (
+          <motion.div
+            key="meme-tooltip"
+            initial={{ opacity: 0, scale: 0.88, y: 8 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.88, y: 8 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+            style={{
+              position: 'fixed',
+              left: pos.x + 18,
+              top: pos.y - 210,
+              zIndex: 9999,
+              pointerEvents: 'none',
+              borderRadius: 16,
+              overflow: 'hidden',
+              boxShadow: '0 12px 48px rgba(0,0,0,0.55), 0 0 0 1.5px rgba(255,255,255,0.08)',
+            }}
+          >
+            <img
+              src="/meme.png"
+              alt=""
+              style={{ display: 'block', width: 260, height: 'auto', maxHeight: 300, objectFit: 'cover' }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </p>
+  )
+}
+
 const navLinks = [
-  { label: 'About',        href: '#about' },
-  { label: 'Skills',       href: '#skills' },
-  { label: 'Experience',   href: '#experience' },
-  { label: 'Projects',     href: '#projects' },
-  { label: 'Education',    href: '#education' },
-  { label: 'Awards',       href: '#awards' },
+  { label: 'About', href: '#about' },
+  { label: 'Skills', href: '#skills' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Projects', href: '#projects' },
+  { label: 'Education', href: '#education' },
+  { label: 'Awards', href: '#awards' },
   { label: 'Certifications', href: '#certifications' },
-  { label: 'Contact',      href: '#contact' },
+  { label: 'Contact', href: '#contact' },
 ]
 
 const contactItems = [
@@ -88,7 +150,7 @@ export default function Footer() {
     fetch('https://api.counterapi.dev/v1/abhimanyukk-portfolio/visits/up')
       .then(r => r.json())
       .then(d => setVisitorCount(d.count))
-      .catch(() => {})
+      .catch(() => { })
   }, [])
 
   return (
@@ -126,21 +188,8 @@ export default function Footer() {
           borderBottom: '1px solid rgba(255,255,255,0.07)',
         }}
       >
-        <p style={{
-          fontFamily: '"Plus Jakarta Sans", sans-serif',
-          fontSize: 'clamp(1.1rem, 2.5vw, 1.55rem)',
-          fontWeight: 900,
-          color: 'rgba(255, 255, 255, 0.38)',
-          lineHeight: 1.5,
-          letterSpacing: '-0.01em',
-          maxWidth: 760,
-          margin: '0 auto',
-          userSelect: 'none',
-        }}>
-          &ldquo;Code is both my QUESTION and my ANSWER&nbsp;&mdash;
-          <br />
-          I write it every day to CLOSE THE GAP.&rdquo;
-        </p>
+        <MemeQuote />
+
       </motion.div>
 
       {/* Main grid: nav left, contact right */}
@@ -321,8 +370,8 @@ export default function Footer() {
           letterSpacing: '0.03em',
         }}>
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-            <circle cx="12" cy="12" r="3"/>
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+            <circle cx="12" cy="12" r="3" />
           </svg>
           {visitorCount !== null
             ? <span>{visitorCount.toLocaleString()} visitors</span>
