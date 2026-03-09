@@ -54,7 +54,7 @@ function MemeQuote() {
             }}
           >
             <img
-              src="/meme.png"
+              src="/ullil-artham-ind-sharafudheen.gif"
               alt=""
               style={{ display: 'block', width: 260, height: 'auto', maxHeight: 300, objectFit: 'cover' }}
             />
